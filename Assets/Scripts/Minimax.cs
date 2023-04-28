@@ -31,7 +31,18 @@ public class Minimax : MonoBehaviour
     }
 
 
-
+    public List<T> Shuffle<T>(List<T> list)  
+    {  
+        int n = list.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = Random.Range(0,n);  
+            T value = list[k];  
+            list[k] = list[n];  
+            list[n] = value;  
+        }  
+        return list;
+    }
     MoveData CreateMove(TileData from, TileData to)
     {
         MoveData tempMove = new MoveData
@@ -151,6 +162,7 @@ public class Minimax : MonoBehaviour
         {
             int maxScore = int.MinValue;
             List<MoveData> allMoves = GetMoves(gameManager.playerTurn);
+            allMoves = Shuffle(allMoves);
             foreach (MoveData move in allMoves)
             {
                 moveStack.Push(move);
@@ -175,6 +187,7 @@ public class Minimax : MonoBehaviour
             PlayerTeam opponent = gameManager.playerTurn == PlayerTeam.WHITE ? PlayerTeam.BLACK : PlayerTeam.WHITE;
             int minScore = int.MaxValue;
             List<MoveData> allMoves = GetMoves(opponent);
+            allMoves = Shuffle(allMoves);
             foreach (MoveData move in allMoves)
             {
                 moveStack.Push(move);
