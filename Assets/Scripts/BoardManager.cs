@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+//This Script Manages the board , Sets up the tile data 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

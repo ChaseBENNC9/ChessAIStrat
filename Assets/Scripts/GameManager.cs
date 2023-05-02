@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Handles the Main Game Logic, 
 public enum PlayerTeam
 {
     NONE = -1,

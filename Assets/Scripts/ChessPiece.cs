@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Handles each chess piece holds team, piece type and position information
 public class ChessPiece : MonoBehaviour
 {
     public enum PieceType

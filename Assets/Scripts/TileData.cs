@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script handles the Tile Data and determines each piece that is currently on each tile of the board.
 public class TileData
 {
     private Vector2 position = Vector2.zero;

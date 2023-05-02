@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This Script manages where each piece is allowed to move at any given time. 
 public class MoveFunction
 {
     BoardManager board;

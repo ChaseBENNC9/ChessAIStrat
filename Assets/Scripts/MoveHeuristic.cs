@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This Script determines the Weight of each piece. 
 public class MoveHeuristic
 {
     public int GetPieceWeight(ChessPiece.PieceType type)
