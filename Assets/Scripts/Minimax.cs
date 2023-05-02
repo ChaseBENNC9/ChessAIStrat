@@ -43,7 +43,10 @@ public class Minimax : MonoBehaviour
         }  
         return list;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e7c0b9a74cec1d03672180d7e3a2f783e6b9785
     MoveData CreateMove(TileData from, TileData to)
     {
         MoveData tempMove = new MoveData
