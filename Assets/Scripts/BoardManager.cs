@@ -8,9 +8,14 @@ public class BoardManager : MonoBehaviour
 {
     private static BoardManager instance;
     public static BoardManager Instance
+
     {
         get{ return instance; }
     }
+
+
+
+    private const int BOARDSIZE = 8; //The Size of the Board
     private void Awake()
     {
         if (instance == null)        
@@ -19,12 +24,12 @@ public class BoardManager : MonoBehaviour
             Destroy(this);    
     }  
 
-    private TileData[,] board = new TileData[8, 8];
+    private TileData[,] board = new TileData[BOARDSIZE, BOARDSIZE];
 
     public void SetupBoard()
     {
-        for (int y = 0; y < 8; y++)        
-            for (int x = 0; x < 8; x++)            
+        for (int y = 0; y < BOARDSIZE; y++)        
+            for (int x = 0; x < BOARDSIZE; x++)            
                 board[x, y] = new TileData(x, y);                    
     }
 
