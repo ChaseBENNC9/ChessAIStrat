@@ -9,7 +9,7 @@ public class MoveFunction
     private ChessPiece piece;
     private Vector2 position;
 
-    public List<MoveData> GetMoves(ChessPiece piece, Vector2 position)
+    public List<MoveData> GetMoves(ChessPiece piece, Vector2 position) //Finds all the legal moves for the specified peice at the position
     {
         this.piece = piece;
         this.position = position;

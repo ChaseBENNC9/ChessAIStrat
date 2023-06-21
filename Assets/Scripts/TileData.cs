@@ -17,17 +17,17 @@ public class TileData
         set{ currentPiece = value; }
     }
 
-    public TileData(int x, int y)
+    public TileData(int x, int y) //Constructor of the tiledata class
     {
         position.x = x;
         position.y = y;
 
-        if (y == 0 || y == 1 || y == 6 || y == 7)        
-            currentPiece = GameObject.Find("[" + x.ToString() + "," + y.ToString() + "]").GetComponent<ChessPiece>();        
+        if (y == 0 || y == 1 || y == 6 || y == 7)      
+            currentPiece = GameObject.Find("[" + x.ToString() + "," + y.ToString() + "]").GetComponent<ChessPiece>(); //sets the current peice on the tile if there is any    
     }
 
     public void SwapFakePieces(ChessPiece newPiece)
     {
-        currentPiece = newPiece;
+        currentPiece = newPiece; //Sets the current piece of the tile to the specified one, this is used to perform a fake Move
     }
 }

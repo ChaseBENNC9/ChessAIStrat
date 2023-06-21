@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //Handles the Main Game Logic, 
-public enum PlayerTeam
+public enum PlayerTeam //Manages the Teams in the Game
 {
     NONE = -1,
     WHITE,
@@ -48,19 +48,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DoAIMove()
 {       
-    if(isCoroutineExecuting)
+    if(isCoroutineExecuting) //Break out of the coroutine if it is already running
         yield break;
 
     isCoroutineExecuting = true;
 
-    if (kingDead)                    
+    if (kingDead)              //If the king is dead then the game is over and the winner is declared      
         Debug.Log(playerTurn + " wins!");        
     else if (!kingDead)
     {                     
         
-        MoveData move = minimax.GetMove();
+        MoveData move = minimax.GetMove(); //Use minimax to calculate the next move
         RemoveObject("Highlight");
-        ShowMove(move);
+        ShowMove(move); //show the target pos
 
         yield return new WaitForSeconds(1);
 
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
         firstTile.CurrentPiece.MovePiece(new Vector2(secondTile.Position.x, secondTile.Position.y));
 
-        CheckDeath(secondTile);
+        CheckDeath(secondTile); //Checks if the king dies when the piece has been moved
                         
         secondTile.CurrentPiece = move.pieceMoved;
         firstTile.CurrentPiece = null;
@@ -103,16 +103,16 @@ public class GameManager : MonoBehaviour
 
     void ShowMove(MoveData move)
     {
-        GameObject GOfrom = Instantiate(fromHighlight);
+        GameObject GOfrom = Instantiate(fromHighlight); //Highlights the current pos
         GOfrom.transform.position = new Vector2(move.firstPosition.Position.x, move.firstPosition.Position.y);
         GOfrom.transform.parent = transform;
 
-        GameObject GOto = Instantiate(toHighlight);
+        GameObject GOto = Instantiate(toHighlight); //highlights the target pos
         GOto.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
         GOto.transform.parent = transform;
     }
 
-    public void RemoveObject(string text)
+    public void RemoveObject(string text) //removes all game objects that have the inputed tag
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag(text);
         foreach (GameObject GO in objects)
